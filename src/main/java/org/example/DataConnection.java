@@ -23,10 +23,12 @@ public class DataConnection {
         s = "The new Connection is " + ns + " established";
         return s;
     }
+
     public void close() {
         s = "All the connections are Closed";
         LOGGER.info(s);
     }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         LOGGER.info("Enter the Connection Name");
@@ -35,20 +37,25 @@ public class DataConnection {
         DataConnection x = DataConnection.getInstance(con);
         boolean choose = true;
         while (choose) {
-            LOGGER.info("Select the option \n 1.New Connection\n 2.Close all connections");
-            int op = sc.nextInt();
-            sc.nextLine();
-            if (op == 1) {
-                LOGGER.info("Enter the new Connection Name");
-                String ns = sc.nextLine();
-                String con1 = x.newConnection(ns);
-                LOGGER.info(con1);
-            } else if (op == 2) {
-                x.close();
+            try {
+                LOGGER.info("Select the option \n 1.New Connection\n 2.Close all connections");
+                int op = sc.nextInt();
+                sc.nextLine();
+                if (op == 1) {
+                    LOGGER.info("Enter the new Connection Name");
+                    String ns = sc.nextLine();
+                    String con1 = x.newConnection(ns);
+                    LOGGER.info(con1);
+                } else if (op == 2) {
+                    x.close();
+                    choose = false;
+                }
+                else{
+                    LOGGER.info("Please Try Again!");
+                }
+            } catch (Exception e) {
+                System.out.println("Something went wrong while giving input");
                 choose=false;
-            }
-            else{
-                LOGGER.info("Something Went Wrong Try Again");
             }
         }
     }

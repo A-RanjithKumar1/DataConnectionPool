@@ -1,12 +1,11 @@
 package org.example;
 
 import java.util.Scanner;
-import java.util.*;
 import java.util.logging.*;
 public class DataConnection {
     private static final Logger LOGGER = Logger.getLogger("InfoLogging");
     private static DataConnection single = null;
-    public String s;
+    String s;
 
     private DataConnection(String s1) {
         s = "you are connected to the " + s1 + " successfully";
@@ -26,10 +25,9 @@ public class DataConnection {
     }
     public void close() {
         s = "All the connections are Closed";
-        single=null;
         LOGGER.info(s);
     }
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         LOGGER.info("Enter the Connection Name");
         String con = sc.nextLine();

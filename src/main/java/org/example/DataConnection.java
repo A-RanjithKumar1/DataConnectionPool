@@ -54,7 +54,7 @@ public class DataConnection {
                     LOGGER.info("Please Try Again!");
                 }
             } catch (Exception e) {
-                System.out.println("Something went wrong while giving input");
+                LOGGER.info("Something went wrong while giving input");
                 choose=false;
             }
         }

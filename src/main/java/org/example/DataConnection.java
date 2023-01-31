@@ -37,7 +37,6 @@ public class DataConnection {
         DataConnection x = DataConnection.getInstance(con);
         boolean choose = true;
         while (choose) {
-            try {
                 LOGGER.info("Select the option \n 1.New Connection\n 2.Close all connections");
                 int op = sc.nextInt();
                 sc.nextLine();
@@ -53,10 +52,6 @@ public class DataConnection {
                 else{
                     LOGGER.info("Please Try Again!");
                 }
-            } catch (Exception e) {
-                LOGGER.info("Something went wrong while giving input");
-                choose=false;
-            }
         }
     }
 }
